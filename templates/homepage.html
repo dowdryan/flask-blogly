@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Welcome to Blogly</h1>
+    <h2>{{ tablename }}</h2>
+    <ul>
+        {% for user in users %}
+            <p><a href="{{ url_for('user_profile', user_id=user.id) }}">{{ user.full_name }}</a></p>
+        {% endfor %}
+    </ul>
+    <form action="{{ url_for('add_user') }}" method="GET">
+        <button type="submit" class="link-button">Add a New User</button>
+    </form>
+{% endblock %}
